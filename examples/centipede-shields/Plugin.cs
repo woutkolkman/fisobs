@@ -84,10 +84,7 @@ sealed class Plugin : BaseUnityPlugin
     bool PlayerCanBeSwallowed(On.Player.orig_CanBeSwallowed orig, Player self, PhysicalObject testObj)
     {
         bool ret = orig(self, testObj);
-
-        if (testObj is CentiShield)
-            ret |= true;
-
+        ret |= testObj is CentiShield;
         return ret;
     }
 }
